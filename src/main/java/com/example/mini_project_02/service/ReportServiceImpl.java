@@ -108,7 +108,7 @@ public class ReportServiceImpl implements ReportService{
     /**
      * @exportPdf to export or download data into pdf format
      */
-    public void exportPdf(HttpServletResponse response) throws Exception{
+    public void exportPdf(HttpServletResponse response) throws IOException {
 
         Document document = new Document(PageSize.A4);
         PdfWriter.getInstance(document, response.getOutputStream());

@@ -16,7 +16,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "CITIZENS_PLANS_INFO")
-public class CitizenPlan {
+public class    CitizenPlan {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
