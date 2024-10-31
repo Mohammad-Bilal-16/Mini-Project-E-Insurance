@@ -35,12 +35,12 @@ public class ReportRestController {
         List<CitizenPlan> citizenPlans = reportService.getCitizenPlans(searchRequest);
         return new ResponseEntity<>(citizenPlans , HttpStatus.OK);
     }
-    @GetMapping("/export")
+    @GetMapping("/excel")
     public void exportExcel(HttpServletResponse response) throws Exception{
         response.setContentType("application/octet-stream");
 
         String key = "Content-Disposition";
-        String value = "attachment;file=citizens.xls";
+        String value = "attachment;filename=citizens.xlsx";
 
         response.setHeader(key , value);
 
@@ -53,11 +53,11 @@ public class ReportRestController {
         response.setContentType("application/pdf");
 
         String key = "Content-Disposition";
-        String value = "attachment;plans.pdf";
+        String value = "attachment;filename=plans.pdf";
 
         response.setHeader(key , value);
 
         reportService.exportPdf(response);
-        response.flushBuffer(); // after writeing it will send the data
+        response.flushBuffer(); // after writing it will send the data
     }
 }
